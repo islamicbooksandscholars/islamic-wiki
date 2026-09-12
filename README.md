@@ -6,14 +6,5 @@
 
 دمتم سالمين.
 
-```dataview-serialize 
-TABLE 
-  row.file.link AS "Files"
-FROM ""
-GROUP BY file.folder AS "Directory"
-```
-
-
-
 
 
