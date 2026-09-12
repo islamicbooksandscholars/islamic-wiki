@@ -7,9 +7,17 @@
 دمتم سالمين.
 
 
-```dataview
-TABLE 
-  row.file.link AS "Files"
-FROM ""
-GROUP BY file.folder AS "Directory"
+
+```dataviewjs
+const groups = dv.pages('""').groupBy(p => p.file.folder);
+let md = "| Directory | Files |\n| --- | --- |\n";
+
+for (let group of groups) {
+    let links = group.rows.map(r => r.file.link).join(", ");
+    md += `| ${group.key || "Root"} | ${links} |\n`;
+}
+
+dv.paragraph(md);
 ```
+
+
